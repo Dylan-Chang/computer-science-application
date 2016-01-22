@@ -1,0 +1,7 @@
+CREATE TABLE testhash(
+  fname VARCHAR(50) NOT NULL,
+  lname VARCHAR(50) NOT NULL,
+  KEY USING HASH(fname)
+
+)ENGINE=MEMORY;
+

@@ -1,0 +1,1 @@
+CREATE TABLE city_demo(city VARCHAR(50) NOT NULL);

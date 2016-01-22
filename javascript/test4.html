@@ -1,0 +1,21 @@
+<link href="http://xymostech.com/katex/katex.min.css" rel="stylesheet" type="text/css">
+<link href="http://xymostech.com/katex/fonts/fonts.css" rel="stylesheet" type="text/css">
+<script src="http://xymostech.com/katex/katex.min.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured"></script>
+
+<script>
+MathJax.Hub.Config({skipStartupTypeset: true});
+MathJax.Hub.Configured();
+</script>
+
+<div id="math"></div>
+<script>
+  Benchmark.prototype.setup = function() {
+    var math = document.getElementById("math");
+    var formula = "\\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}";
+  };
+
+  Benchmark.prototype.teardown = function() {
+    math.innerHTML = "";
+  };
+</script>

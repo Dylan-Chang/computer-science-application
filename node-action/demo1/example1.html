@@ -1,0 +1,18 @@
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script>
+//IO 不阻塞执行
+
+/*
+$.post('resource.json',function(data){
+
+     console.log(data);
+});
+*/
+
+//IO阻塞
+
+var data = $.post('resource.json');
+console.log(data);
+
+
+</script>
