@@ -1,0 +1,31 @@
+server {
+    root /home/vagrant/Code/php-s1s2/s1s2/web//;
+    listen 80;
+    server_name www.s1s2.com;
+    error_log /var/log/s1s2yii_error.log;
+    access_log /var/log/s1s2yii_access.log;
+      location / {
+            index  index.php;
+            if (!-e $request_filename) {
+               rewrite ^(.*)$ index.php$1 last;
+               break;
+            }
+        }
+
+       location ~* ^.+\.(css|js|gif|png|jpg|jpeg|rar|html|htm|shtml|swf|json|xml|cur|ico|ttf|woff|woff2)$ {
+               root /home/vagrant/Code/php-s1s2/s1s2;
+               access_log   off;
+               expires      7d;
+            }
+
+	access_log   off;
+     
+
+        location ~ / {
+            fastcgi_param SCRIPT_FILENAME /home/vagrant/Code/php-s1s2/s1s2/web/index.php;
+            fastcgi_pass 127.0.0.1:9000;
+            fastcgi_index index.php;
+            include fastcgi_params;
+        }
+
+   }
