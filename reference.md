@@ -1,7 +1,9 @@
 因为要用到递归，所以变量加了&. 后来发现laravel 的 ORM 带的 
+
     public function children() {
         return $this->hasMany('Department', 'parent', 'uuid');
     }
+    
  可以实现。 
 
 
