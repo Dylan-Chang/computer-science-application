@@ -1,6 +1,11 @@
-因为要用到递归，所以变量加了&
-            
-               public function index(){
+因为要用到递归，所以变量加了&. 后来发现laravel 的 ORM 带的 
+    public function children() {
+        return $this->hasMany('Department', 'parent', 'uuid');
+    }
+ 可以实现。 
+
+
+             public function index(){
             $arr = array();
             $item = Department::where('id','=',1)->first();
             /*
